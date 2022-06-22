@@ -4,7 +4,7 @@
     containerRegistry: 'self docker'
     repository: 'test1'
     command: 'buildAndPush'
-    Dockerfile: '**/docker-compose.yml'
+    Dockerfile: '**/Dockerfile'
 # Build a Docker image
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
