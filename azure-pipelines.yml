@@ -15,7 +15,7 @@ resources:
 - repo: self
 
 variables:
-  tag: '$(Build.BuildId)'
+  tag: 'akshay450/$(Build.Repository.Name):$(Build.BuildId)'
 
 stages:
 - stage: Build
