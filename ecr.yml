@@ -20,7 +20,7 @@ steps:
     AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
     
 - bash: echo $(AWS_ACCESS_KEY_ID)
-   displayName: Env check
+  displayName: Env check
    
 - task: Docker@2
   displayName: Build docker image
