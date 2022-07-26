@@ -8,7 +8,16 @@ pool:
 
 variables:
   - group: ECR
-  - name: ECR
+  - name: AWS_REGION
+    value: $[variables.AWS_REGION]
+  - name: AWS_ACCOUNT_ID
+    value: $[variables.AWS_ACCOUNT_ID]
+  - name: DOCKER_REPOSITORY_NAME
+    value: $[variables.DOCKER_REPOSITORY_NAME]
+  - name: AWS_SECRET_ACCESS_KEY
+    value: $[variables.AWS_SECRET_ACCESS_KEY]
+  - name: DOCKER_REPOSITORY
+    value: $[variables.DOCKER_REPOSITORY]
     #value: $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(DOCKER_REPOSITORY_NAME)
 
 steps:
