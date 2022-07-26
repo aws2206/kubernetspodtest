@@ -1,19 +1,19 @@
 trigger:
   branches:
     include:
-    - master
+    - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: test1
 
 variables:
-  - group: dev
+  - group: ECR
   - name: DOCKER_REPOSITORY
     value: $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$(DOCKER_REPOSITORY_NAME)
 
 steps:
 - script: |
-    aws ecr get-login-password --region $(AWS_REGION) | docker login --username AWS --password-stdin $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com
+    aws ecr-public get-login-password --region $(AWS_REGION) | docker login --username AWS --password-stdin public.ecr.aws/t5f9q6l8
   displayName: 'Login to AWS'
   env:
     AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
@@ -26,5 +26,5 @@ steps:
     command: buildAndPush
     Dockerfile: Dockerfile
     tags: |
-      latest
+      $(Build.BuildId)
 
